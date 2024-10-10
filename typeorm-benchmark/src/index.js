@@ -34,13 +34,13 @@ AppDataSource.initialize().then(() => __awaiter(void 0, void 0, void 0, function
     yield userRepository.save(user);
     let end = process.hrtime(start);
     console.log("User created:", user);
-    console.log(`Create operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+    console.log(`Create operation en: ${end[0]}s ${end[1] / 1000000}ms`);
     // Medir tiempo de la operación Read
     start = process.hrtime();
     const users = yield userRepository.find();
     end = process.hrtime(start);
     console.log("All users:", users);
-    console.log(`Read operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+    console.log(`Read operation en: ${end[0]}s ${end[1] / 1000000}ms`);
     // Medir tiempo de la operación Update
     start = process.hrtime();
     const updateUser = yield userRepository.findOneBy({ id: 1 });
@@ -49,13 +49,13 @@ AppDataSource.initialize().then(() => __awaiter(void 0, void 0, void 0, function
         yield userRepository.save(updateUser);
         end = process.hrtime(start);
         console.log("User updated:", updateUser);
-        console.log(`Update operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+        console.log(`Update operation en: ${end[0]}s ${end[1] / 1000000}ms`);
     }
     // Medir tiempo de la operación Delete
     start = process.hrtime();
     yield userRepository.delete({ id: 1 });
     end = process.hrtime(start);
     console.log("User deleted");
-    console.log(`Delete operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+    console.log(`Delete operation en: ${end[0]}s ${end[1] / 1000000}ms`);
     process.exit();
 }));

@@ -1,4 +1,4 @@
-import { MikroORM, defineConfig } from '@mikro-orm/core';
+import { MikroORM} from '@mikro-orm/core';
 import { User } from './entity/User';
 import config from './mikro-orm.config';
 
