@@ -26,14 +26,14 @@ AppDataSource.initialize().then(async () => {
   await userRepository.save(user);
   let end = process.hrtime(start);
   console.log("User created:", user);
-  console.log(`Create operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+  console.log(`Create operation en: ${end[0]}s ${end[1] / 1000000}ms`);
 
   // Medir tiempo de la operación Read
   start = process.hrtime();
   const users = await userRepository.find();
   end = process.hrtime(start);
   console.log("All users:", users);
-  console.log(`Read operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+  console.log(`Read operation en: ${end[0]}s ${end[1] / 1000000}ms`);
 
   // Medir tiempo de la operación Update
   start = process.hrtime();
@@ -43,7 +43,7 @@ AppDataSource.initialize().then(async () => {
     await userRepository.save(updateUser);
     end = process.hrtime(start);
     console.log("User updated:", updateUser);
-    console.log(`Update operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+    console.log(`Update operation en: ${end[0]}s ${end[1] / 1000000}ms`);
   }
 
   // Medir tiempo de la operación Delete
@@ -51,7 +51,7 @@ AppDataSource.initialize().then(async () => {
   await userRepository.delete({ id: 1 });
   end = process.hrtime(start);
   console.log("User deleted");
-  console.log(`Delete operation took: ${end[0]}s ${end[1] / 1000000}ms`);
+  console.log(`Delete operation en: ${end[0]}s ${end[1] / 1000000}ms`);
 
   process.exit();
 });
